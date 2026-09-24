@@ -13,14 +13,8 @@ function HomePage() {
             treningi, zawody i edukacja strzelecka dla mieszkańców powiatu.
           </p>
           <div className="home-intro__actions">
-            <Link className="btn btn--solid" to="/aktualnosci">
-              Aktualności
-            </Link>
-            <Link className="btn btn--outline" to="/kalendarz">
-              Kalendarz
-            </Link>
-            <Link className="btn btn--outline" to="/kontakt">
-              Kontakt
+            <Link className="btn btn--solid" to="/o-strzelnicy">
+              O strzelnicy
             </Link>
           </div>
         </div>
