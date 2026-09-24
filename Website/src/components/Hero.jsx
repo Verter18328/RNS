@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
+
 function Hero() {
   return (
-    <section id="start" className="hero">
+    <section className="hero">
       <div className="hero__backdrop" aria-hidden="true" />
       <div className="hero__content">
         <p className="hero__eyebrow">Strzelnica · Liga Obrony Kraju</p>
@@ -10,12 +12,12 @@ function Hero() {
           bezpiecznie, lokalnie, razem.
         </p>
         <div className="hero__actions">
-          <a className="btn btn--primary" href="#kalendarz">
+          <Link className="btn btn--primary" to="/kalendarz">
             Zobacz kalendarz
-          </a>
-          <a className="btn btn--ghost" href="#aktualnosci">
+          </Link>
+          <Link className="btn btn--ghost" to="/aktualnosci">
             Aktualności
-          </a>
+          </Link>
         </div>
       </div>
     </section>

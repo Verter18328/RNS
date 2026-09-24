@@ -1,24 +1,30 @@
-import Header from './components/Header.jsx'
-import Hero from './components/Hero.jsx'
-import About from './components/About.jsx'
-import NewsSection from './components/NewsSection.jsx'
-import EventsCalendar from './components/EventsCalendar.jsx'
-import Contact from './components/Contact.jsx'
-import Footer from './components/Footer.jsx'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Layout from './Layout.jsx'
+import HomePage from './pages/HomePage.jsx'
+import AboutPage from './pages/AboutPage.jsx'
+import NewsPage from './pages/NewsPage.jsx'
+import NewsDetailPage from './pages/NewsDetailPage.jsx'
+import CalendarPage from './pages/CalendarPage.jsx'
+import ContactPage from './pages/ContactPage.jsx'
+import LeaguePage from './pages/LeaguePage.jsx'
+import NotFoundPage from './pages/NotFoundPage.jsx'
 
 function App() {
   return (
-    <div className="page">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <NewsSection />
-        <EventsCalendar />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="o-strzelnicy" element={<AboutPage />} />
+          <Route path="aktualnosci" element={<NewsPage />} />
+          <Route path="aktualnosci/:id" element={<NewsDetailPage />} />
+          <Route path="kalendarz" element={<CalendarPage />} />
+          <Route path="liga" element={<LeaguePage />} />
+          <Route path="kontakt" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

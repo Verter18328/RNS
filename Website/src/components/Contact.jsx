@@ -1,10 +1,9 @@
 function Contact() {
-  const mapUrl =
-    'https://www.google.com/maps/search/?api=1&query=Plac+Wolno%C5%9Bci+21+Ko%C5%9Bcian'
+  const mapUrl = 'https://maps.app.goo.gl/ziDvUKrzHGVKDhgL8'
   const facebookUrl = 'https://www.facebook.com/strzelnica.lok.koscian'
 
   return (
-    <section id="kontakt" className="section contact">
+    <section className="section contact">
       <div className="section__inner">
         <h2>Kontakt</h2>
         <p className="section__lead">

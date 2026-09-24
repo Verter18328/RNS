@@ -12,6 +12,10 @@ export async function getNews() {
   return items
 }
 
+export async function getNewsById(id) {
+  return seedNews.find((item) => item.id === id) ?? null
+}
+
 export async function getEvents({ from, to } = {}) {
   const fromTime = from ? new Date(from).getTime() : null
   const toTime = to ? new Date(to).getTime() : null

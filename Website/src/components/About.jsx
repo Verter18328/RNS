@@ -1,6 +1,6 @@
 function About() {
   return (
-    <section id="o-strzelnicy" className="section about">
+    <section className="section about">
       <div className="section__inner">
         <h2>O strzelnicy</h2>
         <p className="section__lead">

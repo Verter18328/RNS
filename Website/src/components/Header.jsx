@@ -1,24 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 const NAV_LINKS = [
-  { href: '#start', label: 'Start' },
-  { href: '#o-strzelnicy', label: 'O strzelnicy' },
-  { href: '#aktualnosci', label: 'Aktualności' },
-  { href: '#kalendarz', label: 'Kalendarz' },
-  { href: '#kontakt', label: 'Kontakt' },
+  { to: '/', label: 'Start', end: true },
+  { to: '/o-strzelnicy', label: 'O strzelnicy' },
+  { to: '/aktualnosci', label: 'Aktualności' },
+  { to: '/kalendarz', label: 'Kalendarz' },
+  { to: '/liga', label: 'Liga' },
+  { to: '/kontakt', label: 'Kontakt' },
 ]
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
   const closeMenu = () => setMenuOpen(false)
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname])
 
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <a className="site-logo" href="#start" onClick={closeMenu}>
+        <Link className="site-logo" to="/" onClick={closeMenu}>
           <span className="site-logo__mark" aria-hidden="true" />
           LOK Kościan
-        </a>
+        </Link>
         <button
           className="menu-toggle"
           type="button"
@@ -35,10 +42,17 @@ function Header() {
         >
           <ul className="site-nav__list">
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} onClick={closeMenu}>
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  end={link.end}
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive ? 'site-nav__link site-nav__link--active' : 'site-nav__link'
+                  }
+                >
                   {link.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>

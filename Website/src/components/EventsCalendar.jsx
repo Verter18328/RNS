@@ -108,7 +108,7 @@ function EventsCalendar() {
   }
 
   return (
-    <section id="kalendarz" className="section calendar">
+    <section className="section calendar">
       <div className="section__inner">
         <h2>Kalendarz wydarzeń</h2>
         <p className="section__lead">

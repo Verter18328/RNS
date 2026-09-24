@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { getNews } from '../api/client.js'
 
 function formatDate(iso) {
@@ -31,7 +32,7 @@ function NewsSection() {
   }, [])
 
   return (
-    <section id="aktualnosci" className="section news">
+    <section className="section news">
       <div className="section__inner">
         <h2>Aktualności</h2>
         <p className="section__lead">
@@ -48,8 +49,13 @@ function NewsSection() {
             {items.map((item) => (
               <li key={item.id} className="news__item">
                 <time dateTime={item.published_at}>{formatDate(item.published_at)}</time>
-                <h3>{item.title}</h3>
+                <h3>
+                  <Link to={`/aktualnosci/${item.id}`}>{item.title}</Link>
+                </h3>
                 <p>{item.summary}</p>
+                <Link className="news__more" to={`/aktualnosci/${item.id}`}>
+                  Czytaj więcej
+                </Link>
               </li>
             ))}
           </ul>
